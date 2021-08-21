@@ -1,0 +1,34 @@
+/**
+	 * Genera un informe de todos los  cocteles  con sus ingredientes y porcentajes 
+	 * @throws FileNotFoundException - Cuando no existe la ruta especificada del archivo a escribir
+   *@throws IOException - Se genera cuando existe un problema de entrada - salida
+	 */
+   public void informeCocteles () throw FileNotFoundException, IOException
+   {
+   
+   File archivo = new File("./data/informeDeCocteles.txt");
+	 PrintWriter pluma = new PrintWriter(archivo);
+
+		pluma.println("REPORTE DE COCTELES");
+		pluma.println("**********************");
+    
+    for (int i = 0; i < cocteles.size(); i++)
+    {
+    Coctel miCoctel = (Coctel)cocteles.get(i);
+    
+    pluma.println("Numero de cocteles" + miCoctel.darNombre().size());
+    pluma.println("Nombre coctel" + miCoctel.darNombre());
+    
+    for (int j = 0; j <miCoctel.darListaIngredientes().size(); j++)
+    {
+    Ingrediente miIngrediente =(Ingrediente)miCoctel.darListaIngredintes().get(j);
+    
+    pluma.println("Nombre Ingrediente" + miIngrediente.darBebida().darNombre());
+    pluma.println("Porcentaje Ingrediente" + miIngrediente.darPorcentaje());
+    }
+    
+    }
+    
+    pluma.close();
+    
+    }
